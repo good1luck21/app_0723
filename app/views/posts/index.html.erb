@@ -1,0 +1,14 @@
+<h1>Posts#index</h1>
+<p>Find me in app/views/posts/index.html.erb</p>
+<% if session[:user_id] %>
+  <p>You are logged in.</p>
+  <ul>
+    <% @posts.each do |post| %>
+      <li><%= post.title %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You are not logged in.</p>
+  <%= link_to 'Sign up', '/signup' %>
+  <%= link_to 'Sign in', '#' %>
+<% end %>

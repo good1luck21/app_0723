@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App0723</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if session[:user_id] %>
+      <a href="/">Home</a>
+      <a href="/posts/new">new post</a>
+      <%= link_to "logout", "/logout", method: :delete %>
+    <% else %>
+      <a href="/signup">signup</a>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
